@@ -4,7 +4,7 @@ import android.text.TextUtils;
 
 import com.cryallen.commonlib.rxhttp.base.BaseData;
 import com.cryallen.commonlib.rxhttp.base.BaseObserver;
-import com.eziahz.companion.hu.base.utils.LogUtils;
+import com.cryallen.commonlib.utils.LogUtils;
 
 import io.reactivex.disposables.Disposable;
 

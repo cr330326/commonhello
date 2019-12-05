@@ -1,7 +1,7 @@
 package com.cryallen.commonlib.rxhttp.interceptor;
 
 import com.cryallen.commonlib.utils.AppUtils;
-import com.cryallen.commonlib.utils.NetworkUtils;
+import com.cryallen.commonlib.utils.NetworkConnectionUtils;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -34,7 +34,7 @@ public class NetCacheInterceptor implements Interceptor {
     public Response intercept(Chain chain) throws IOException {
 
         Request request = chain.request();
-        boolean connected = NetworkUtils.isConnected(AppUtils.getContext());
+        boolean connected = NetworkConnectionUtils.isConnected(AppUtils.getContext());
         if (connected) {
             //如果有网络，缓存60s
             Response response = chain.proceed(request);

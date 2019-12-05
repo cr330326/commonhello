@@ -30,8 +30,6 @@ android {
 }
 
 dependencies {
-    //implementation fileTree(dir: 'libs', include: ['*.jar'])
-
     api "com.android.support:multidex:$rootProject.multidexVersion"
     api "androidx.appcompat:appcompat:$rootProject.androidxVersion"
     api "com.google.android.material:material:$rootProject.materialVersion"
