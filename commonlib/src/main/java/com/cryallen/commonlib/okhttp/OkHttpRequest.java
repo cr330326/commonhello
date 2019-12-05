@@ -10,10 +10,7 @@ import com.cryallen.commonlib.okhttp.network.RequestParams;
 
 import com.cryallen.commonlib.okhttp.interf.IMethod;
 import com.cryallen.commonlib.okhttp.utils.MediaTypeUtils;
-import com.cryallen.commonlib.okhttp.abstarct.AbsICallbackHandler;
 import com.cryallen.commonlib.okhttp.interf.IAccept;
-import com.cryallen.commonlib.okhttp.network.RequestParams;
-import com.cryallen.commonlib.okhttp.interf.ThreadMode;
 import com.cryallen.commonlib.okhttp.network.HttpResponse;
 
 import java.io.File;
