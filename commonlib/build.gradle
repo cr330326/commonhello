@@ -55,6 +55,9 @@ dependencies {
     api "io.reactivex.rxjava2:rxandroid:$rootProject.rxandroidVersion"
     api "com.jakewharton.rxbinding2:rxbinding:$rootProject.rxbindingVersion"
 
+    // OkHttp
+    api "com.squareup.okhttp3:okhttp:$rootProject.okhttpVersion"
+    api "com.squareup.okhttp3:logging-interceptor:$rootProject.okhttpVersion"
 
     // Fragmentation
     api "me.yokeyword:fragmentationx:$rootProject.fragmentationVersion"
