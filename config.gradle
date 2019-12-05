@@ -1,0 +1,55 @@
+ext {
+    android = [
+            compileSdkVersion   :  29,
+            buildToolsVersion   :  "29.0.2",
+            minSdkVersion       :  19,
+            targetSdkVersion    :  29,
+            versionCode         :  1,
+            versionName         :  "0.0.1"
+    ]
+
+    version = [
+            androidxVersion                 : "1.1.0",
+            materialVersion                 : "1.0.0",
+            constraintlayoutVersion         : "2.3.0",
+            multidexVersion                 : "4.2.0",
+            recyclerviewVersion             : "2.13",
+
+            gsonVersion                     : "2.8.5",
+            okhttpVersion                   : "3.9.1",
+            okhttploggingVersion            : "3.8.1",
+            circleImageviewVersion          : "2.1.0",
+
+            glideVersion                    : "4.9.0",
+            glideokhttpVersion              : "4.9.0",
+            glideTransformationVersion      : "4.0.1",
+
+            retrofitVersion                 : "2.6.1",
+            rxjavaVersion                   : "2.2.6",
+            rxandroidVersion                : "2.1.1",
+            rxbindingVersion                : "2.0.0",
+
+            loggerVersion                   : "2.2.0",
+            fragmentationVersion            : "1.0.1"
+    ]
+
+    dependencies = [
+            //support
+            "multidex"                : "com.android.support:multidex:${android["multidexVersion"]}",
+            "appcompat"               : "androidx.appcompat:appcompat:${android["androidxVersion"]}",
+            "material"                : "com.google.android.material:material:${android["materialVersion"]}",
+            "constraintlayout"        : "androidx.constraintlayout:constraintlayout:${android["constraintlayoutVersion"]}",
+            "recyclerview"            : "androidx.recyclerview:recyclerview:${android["recyclerviewVersion"]}",
+
+            // Logger
+            "logger"                  : "com.orhanobut:logger:${android["loggerVersion"]}",
+
+            // Gson
+            "gson"                    : "com.google.code.gson:gson:${android["gsonVersion"]}",
+
+            // Glide
+            "glide"                    : "com.github.bumptech.glide:glide:${android["glideVersion"]}",
+            "glideokhttpVersion"       : "com.github.bumptech.glide:okhttp-integration:${android["glideokhttpVersion"]}",
+            "wasabeef"                 : "jp.wasabeef:glide-transformations:${android["glideTransformationVersion"]}"
+    ]
+}
