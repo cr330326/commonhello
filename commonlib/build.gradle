@@ -37,4 +37,10 @@ dependencies {
     api "com.google.android.material:material:$rootProject.materialVersion"
     api "androidx.constraintlayout:constraintlayout:$rootProject.constraintlayoutVersion"
     api "androidx.recyclerview:recyclerview:$rootProject.recyclerviewVersion"
+
+    // Logger
+    api "com.orhanobut:logger:$rootProject.loggerVersion"
+
+    // Gson
+    api "com.google.code.gson:gson:$rootProject.gsonVersion"
 }
