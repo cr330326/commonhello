@@ -1,0 +1,79 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        maven { url 'https://jitpack.io' }
+        
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.5.2'
+        
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        maven { url 'https://jitpack.io' }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+ext {
+    // Sdk and tools
+    buildToolsVersion = '29.0.2'
+    compileSdkVersion = 29
+    minSdkVersion = 19
+    targetSdkVersion = 29
+    versionCode = 1
+    versionName = "1.0.0"
+
+    // App dependencies
+    androidxVersion = '1.0.2'
+    materialVersion = '1.0.0'
+    constraintlayoutVersion = '1.1.3'
+    multidexVersion = '1.0.3'
+    recyclerviewVersion = '1.1.0-beta05'
+
+    //第三方库版本
+    gsonVersion = '2.8.5'
+
+    okhttpVersion = '3.9.1'
+    okhttploggingVersion = '3.8.1'
+
+    circleImageviewVersion = '2.1.0'
+    SwtichButtonVersion = '1.4.6'
+    PhotoViewVersion = '1.4.1'
+    BottomSheetVersion = '1.3.0@aar'
+
+    glideVersion = '4.9.0'
+    glideokhttpVersion = '4.9.0'
+    glideTransformationVersion = '4.0.1'
+    gifVersion = '1.2.18'
+
+    retrofitVersion = '2.6.1'
+    rxjavaVersion = '2.2.6'
+    rxandroidVersion = '2.1.1'
+    rxbindingVersion = '2.0.0'
+    rxPerssionsVersion = '0.9.4@aar'
+
+    butterknifeVersion = '10.2.0'
+    loggerVersion = '2.2.0'
+    fragmentationVersion = '1.0.1'
+    eventbusVersion = '3.1.1'
+
+    reflectionVersion = '2.2.0'
+    dkzwmVersion = '1.7.0.androidx'
+}
