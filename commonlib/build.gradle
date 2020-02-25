@@ -2,14 +2,14 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.novoda.bintray-release'
 
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
+    compileSdkVersion rootProject.ext.android["compileSdkVersion"]
+    buildToolsVersion rootProject.ext.android["buildToolsVersion"]
 
     defaultConfig {
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode rootProject.ext.versionCode
-        versionName rootProject.ext.versionName
+        minSdkVersion rootProject.ext.android["minSdkVersion"]
+        targetSdkVersion rootProject.ext.android["targetSdkVersion"]
+        versionCode rootProject.ext.android["versionCode"]
+        versionName rootProject.ext.android["versionName"]
 
         vectorDrawables.useSupportLibrary = true
     }
@@ -32,50 +32,50 @@ android {
 }
 
 dependencies {
-    api "com.android.support:multidex:$rootProject.multidexVersion"
-    api "androidx.appcompat:appcompat:$rootProject.androidxVersion"
-    api "com.google.android.material:material:$rootProject.materialVersion"
-    api "androidx.constraintlayout:constraintlayout:$rootProject.constraintlayoutVersion"
-    api "androidx.recyclerview:recyclerview:$rootProject.recyclerviewVersion"
+    api rootProject.ext.dependencies["multidex"]
+    api rootProject.ext.dependencies["appcompat"]
+    api rootProject.ext.dependencies["material"]
+    api rootProject.ext.dependencies["constraintlayout"]
+    api rootProject.ext.dependencies["recyclerview"]
 
     // Logger
-    api "com.orhanobut:logger:$rootProject.loggerVersion"
+    api rootProject.ext.dependencies["loggerVersion"]
 
     // Gson
-    api "com.google.code.gson:gson:$rootProject.gsonVersion"
+    api rootProject.ext.dependencies["gson"]
 
     // Glide
-    api "com.github.bumptech.glide:glide:$rootProject.glideVersion"
-    annotationProcessor "com.github.bumptech.glide:compiler:$rootProject.glideVersion"
-    api "com.github.bumptech.glide:okhttp-integration:$rootProject.glideokhttpVersion"
-    api "jp.wasabeef:glide-transformations:$rootProject.glideTransformationVersion"
+    api rootProject.ext.dependencies["glide"]
+    annotationProcessor rootProject.ext.dependencies["glideCompiler"]
+    api rootProject.ext.dependencies["glideOkhttpVersion"]
+    api rootProject.ext.dependencies["glideTransformationVersion"]
 
     // RxJava
-    api "io.reactivex.rxjava2:rxjava:$rootProject.rxjavaVersion"
-    api "io.reactivex.rxjava2:rxandroid:$rootProject.rxandroidVersion"
-    api "com.jakewharton.rxbinding2:rxbinding:$rootProject.rxbindingVersion"
+    api rootProject.ext.dependencies["rxjava"]
+    api rootProject.ext.dependencies["rxandroid"]
+    api rootProject.ext.dependencies["rxbinding"]
 
     // Retrofit2
-    api "com.squareup.retrofit2:retrofit:${rootProject.retrofitVersion}"
-    api "com.squareup.retrofit2:adapter-rxjava2:${rootProject.retrofitVersion}"
-    api "com.squareup.retrofit2:converter-gson:${rootProject.retrofitVersion}"
-    api "com.squareup.retrofit2:converter-scalars:${rootProject.retrofitVersion}"
-    api "com.squareup.retrofit2:converter-jaxb:${rootProject.retrofitVersion}"
+    api rootProject.ext.dependencies["retrofit"]
+    api rootProject.ext.dependencies["adapter-rxjava2"]
+    api rootProject.ext.dependencies["converter-gson"]
+    api rootProject.ext.dependencies["converter-scalars"]
+    api rootProject.ext.dependencies["converter-jaxb"]
 
     // OkHttp
-    api "com.squareup.okhttp3:okhttp:$rootProject.okhttpVersion"
-    api "com.squareup.okhttp3:logging-interceptor:$rootProject.okhttpVersion"
+    api rootProject.ext.dependencies["okhttp"]
+    api rootProject.ext.dependencies["logging-interceptor"]
 
     // Fragmentation
-    api "me.yokeyword:fragmentationx:$rootProject.fragmentationVersion"
+    api rootProject.ext.dependencies["fragmentationVersion"]
 }
 
 publish {
-    userOrg = 'allen330326'                                 // Binary用户名
-    repoName = 'maven'                                      // Binary上的刚才新建的仓库名（Repository）
-    groupId = 'com.cryallen.commonhello'                    // 依赖名compile 'x:y:z'中的包名x
-    artifactId = 'commonlib'                                // 依赖名compile 'x:y:z'中的项目名y
-    publishVersion = "$rootProject.versionName"             // 依赖名compile 'x:y:z'中的版本号z
-    desc = 'A Android common lib components'                // 对该开源组件的说明
-    website = 'https://github.com/cr330326/commonhello'     // VCS地址，即填写项目上传的Github地址
+    userOrg = 'allen330326'                                                 // Binary用户名
+    repoName = 'maven'                                                      // Binary上的刚才新建的仓库名（Repository）
+    groupId = 'com.cryallen.commonhello'                                    // 依赖名compile 'x:y:z'中的包名x
+    artifactId = 'commonlib'                                                // 依赖名compile 'x:y:z'中的项目名y
+    publishVersion = "$rootProject.publishVersion"                          // 依赖名compile 'x:y:z'中的版本号z
+    desc = 'A Android Common Lib Components'                                // 对该开源组件的说明
+    website = 'https://github.com/cr330326/commonhello'                     // VCS地址，即填写项目上传的Github地址
 }
