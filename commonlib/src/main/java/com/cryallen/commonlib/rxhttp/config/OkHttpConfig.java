@@ -90,6 +90,7 @@ public class OkHttpConfig {
         private BuildHeadersListener buildHeadersListener;
         private HostnameVerifier hostnameVerifier;
         private Proxy proxy;
+        private HeaderInterceptor headerInterceptor;
 
         public Builder(Context context) {
             this.context = context;
@@ -177,6 +178,11 @@ public class OkHttpConfig {
             return this;
         }
 
+        public Builder setHeaderInterceptor(HeaderInterceptor headerInterceptor){
+            this.headerInterceptor = headerInterceptor;
+            return this;
+        }
+
         public Builder build() {
             OkHttpConfig.getInstance();
 
@@ -192,7 +198,18 @@ public class OkHttpConfig {
         }
 
         public OkHttpClient create(){
-            setProxy();
+            okHttpClient = okHttpClientBuilder.build();
+            return okHttpClient;
+        }
+
+        public OkHttpClient createByProxy(){
+            setAddProxy();
+            okHttpClient = okHttpClientBuilder.build();
+            return okHttpClient;
+        }
+
+        public OkHttpClient createByHeadInterceptor(){
+            setAddHeadInterceptor();
             okHttpClient = okHttpClientBuilder.build();
             return okHttpClient;
         }
@@ -304,11 +321,20 @@ public class OkHttpConfig {
             }
         }
 
-        private void setProxy() {
+        private void setAddProxy() {
             if (null == proxy) {
                 okHttpClientBuilder.proxy(Proxy.NO_PROXY);
             } else {
                 okHttpClientBuilder.proxy(proxy);
+            }
+        }
+
+        /**
+         * 设置请求头拦截器(可选)
+         */
+        private void setAddHeadInterceptor(){
+            if(headerInterceptor != null ){
+                okHttpClientBuilder.addInterceptor(headerInterceptor);
             }
         }
     }
