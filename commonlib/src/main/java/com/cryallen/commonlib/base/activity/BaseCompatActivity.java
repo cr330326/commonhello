@@ -12,6 +12,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
 
@@ -78,7 +79,7 @@ public abstract class BaseCompatActivity extends SupportActivity {
 		return super.dispatchTouchEvent(ev);
 	}
 
-	private void init(Bundle savedInstanceState) {
+	private void init(@Nullable Bundle savedInstanceState) {
 		setTheme(ThemeUtils.themeArr[SpUtils.getThemeIndex(this)][SpUtils.getNightModel(this) ? 1 : 0]);
 		setContentView(getLayoutId());
 		StatusBarUtils.setTransparent(this);

@@ -47,5 +47,5 @@ task clean(type: Delete) {
 }
 
 ext {
-    publishVersion = "0.0.3"
+    publishVersion = "0.0.5"
 }
