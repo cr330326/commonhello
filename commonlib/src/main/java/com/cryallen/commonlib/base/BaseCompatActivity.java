@@ -12,6 +12,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
+import androidx.annotation.LayoutRes;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
@@ -126,6 +127,7 @@ public abstract class BaseCompatActivity extends SupportActivity {
 	 *
 	 * @return layout Id
 	 */
+	@LayoutRes
 	protected abstract int getLayoutId();
 
 	/**
