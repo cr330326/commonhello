@@ -1,20 +1,18 @@
-package com.cryallen.commonlib.base.activity;
+package com.cryallen.commonlib.base.mvp;
 
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 
+import com.cryallen.commonlib.base.BaseCompatActivity;
 import com.orhanobut.logger.Logger;
-
-import com.cryallen.commonlib.base.BasePresenter;
-import com.cryallen.commonlib.base.IBaseActivity;
 import com.cryallen.commonlib.utils.ToastUtils;
 
 /***
  *  Mvp Activity基类
  Created by chenran on 2018/6/30.
  ***/
-public abstract class BaseMVPCompatActivity <P extends BasePresenter> extends BaseCompatActivity implements IBaseActivity {
+public abstract class BaseMVPCompatActivity <P extends BaseMvpPresenter> extends BaseCompatActivity implements IBaseMvpActivity {
 
 	/**
 	 * presenter 具体的presenter由子类确定

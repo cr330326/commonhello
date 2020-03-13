@@ -1,4 +1,4 @@
-package com.cryallen.commonlib.base.fragment;
+package com.cryallen.commonlib.base.mvp;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,14 +8,13 @@ import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 
 import com.cryallen.commonlib.R;
-import com.cryallen.commonlib.base.BasePresenter;
 
 
 /***
  * 带RecycleView加载状态view的fragment，主要用于显示加载中、空界面、加载失败等状态界面显示
  Created by chenran on 2018/7/2.
  ***/
-public abstract class BaseRecycleFragment <P extends BasePresenter> extends
+public abstract class BaseMvpRecycleFragment<P extends BaseMvpPresenter> extends
 		BaseMVPCompatFragment<P> {
 
 	/**

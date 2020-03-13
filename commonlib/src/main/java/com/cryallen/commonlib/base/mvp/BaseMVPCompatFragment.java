@@ -1,4 +1,4 @@
-package com.cryallen.commonlib.base.fragment;
+package com.cryallen.commonlib.base.mvp;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -6,11 +6,10 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
+import com.cryallen.commonlib.base.BaseCompatFragment;
 import com.orhanobut.logger.Logger;
 
-import com.cryallen.commonlib.base.BasePresenter;
-import com.cryallen.commonlib.base.IBaseFragment;
-import com.cryallen.commonlib.base.activity.BaseCompatActivity;
+import com.cryallen.commonlib.base.BaseCompatActivity;
 import com.cryallen.commonlib.utils.ToastUtils;
 
 import me.yokeyword.fragmentation.SupportFragment;
@@ -19,8 +18,8 @@ import me.yokeyword.fragmentation.SupportFragment;
  *  Mvp Fragment基类，实现IBaseView方法、绑定butterknife
  Created by chenran on 2018/7/2.
  ***/
-public abstract class BaseMVPCompatFragment <P extends BasePresenter> extends
-		BaseCompatFragment implements IBaseFragment {
+public abstract class BaseMVPCompatFragment <P extends BaseMvpPresenter> extends
+		BaseCompatFragment implements IBaseMvpFragment {
 
 	public P mPresenter;
 

@@ -1,4 +1,4 @@
-package com.cryallen.commonlib.base;
+package com.cryallen.commonlib.base.mvp;
 
 import androidx.annotation.NonNull;
 
@@ -9,7 +9,7 @@ import java.lang.ref.WeakReference;
 /***
  Created by chenran on 2018/6/29.
  ***/
-public abstract class BasePresenter <M, V> {
+public abstract class BaseMvpPresenter<M, V> {
 
 	protected M mIModel;
 	//解决MVP模式中，Presenter持有IView层容易引起的内存泄漏问题，用弱引用来解决

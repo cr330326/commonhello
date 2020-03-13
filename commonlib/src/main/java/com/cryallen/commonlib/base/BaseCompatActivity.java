@@ -2,7 +2,7 @@
  * BaseCompatActivity 2017-02-04
  * Copyright (c) 2017 TYYD Co.Ltd. All right reserved
  */
-package com.cryallen.commonlib.base.activity;
+package com.cryallen.commonlib.base;
 
 import android.content.Context;
 import android.content.Intent;

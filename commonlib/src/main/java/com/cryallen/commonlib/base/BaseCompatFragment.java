@@ -1,4 +1,4 @@
-package com.cryallen.commonlib.base.fragment;
+package com.cryallen.commonlib.base;
 
 import android.app.Activity;
 import android.content.Context;

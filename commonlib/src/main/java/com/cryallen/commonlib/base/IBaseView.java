@@ -1,21 +1,10 @@
 package com.cryallen.commonlib.base;
 
-
-import androidx.annotation.NonNull;
-
 /***
  * fragment base view接口
  Created by chenran on 2018/6/29.
  ***/
 public interface IBaseView {
-	/**
-	 * 初始化presenter
-	 * <p>
-	 * 此方法返回的presenter对象不可为空
-	 */
-	@NonNull
-	BasePresenter initPresenter();
-
 	/**
 	 * 显示toast消息
 	 *
