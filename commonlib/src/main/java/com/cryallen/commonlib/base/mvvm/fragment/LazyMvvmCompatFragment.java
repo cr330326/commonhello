@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
@@ -14,7 +13,8 @@ import androidx.databinding.ViewDataBinding;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
-import com.cryallen.commonlib.base.mvvm.IBaseMvvmView;
+import com.cryallen.commonlib.base.BaseCompatFragment;
+import com.cryallen.commonlib.base.mvvm.view.IBaseMvvmView;
 import com.cryallen.commonlib.base.mvvm.viewmodel.IMvvmBaseViewModel;
 
 import java.util.List;
@@ -24,7 +24,7 @@ import java.util.List;
  * @author Allen
  * @DATE 2020-03-13
  ***/
-public abstract class LazyMvvmCompatFragment<V extends ViewDataBinding,VM extends IMvvmBaseViewModel> extends Fragment implements IBaseMvvmView {
+public abstract class LazyMvvmCompatFragment<V extends ViewDataBinding,VM extends IMvvmBaseViewModel> extends BaseCompatFragment implements IBaseMvvmView {
 	protected V viewDataBinding;
 
 	protected VM viewModel;
@@ -296,9 +296,6 @@ public abstract class LazyMvvmCompatFragment<V extends ViewDataBinding,VM extend
 	 * 获取ViewModel
 	 */
 	protected abstract VM getViewModel();
-
-	@LayoutRes
-	protected abstract int getLayoutId();
 
 	/**
 	 * 失败重试,加载事件

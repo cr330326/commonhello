@@ -1,4 +1,4 @@
-package com.cryallen.commonlib.base.mvp.fragment;
+package com.cryallen.commonlib.base;
 
 import android.app.Activity;
 import android.content.Context;
@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.cryallen.commonlib.global.GlobalApplication;
-import com.cryallen.commonlib.utils.AppUtils;
 
 import me.yokeyword.fragmentation.SupportFragment;
 
@@ -30,8 +29,7 @@ public abstract class BaseCompatFragment extends SupportFragment {
 	}
 
 	@Override
-	public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable
-			Bundle savedInstanceState) {
+	public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 		if (getLayoutView() != null) {
 			return getLayoutView();
 		} else {
@@ -43,8 +41,7 @@ public abstract class BaseCompatFragment extends SupportFragment {
 	public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 		super.onViewCreated(view, savedInstanceState);
 		getBundle(getArguments());
-		initData();
-		initUI(view, savedInstanceState);
+		mApplication = (GlobalApplication) mActivity.getApplication();
 	}
 
 	@Override
@@ -72,21 +69,7 @@ public abstract class BaseCompatFragment extends SupportFragment {
 	/**
 	 * 得到Activity传进来的值
 	 */
-	public void getBundle(Bundle bundle) {
-	}
-
-	/**
-	 * 初始化UI
-	 */
-	public abstract void initUI(View view, @Nullable Bundle savedInstanceState);
-
-	/**
-	 * 在监听器之前把数据准备好
-	 */
-	public void initData() {
-		mContext = AppUtils.getContext();
-		mApplication = (GlobalApplication) mActivity.getApplication();
-	}
+	public void getBundle(Bundle bundle) { }
 
 	/**
 	 * 处理回退事件

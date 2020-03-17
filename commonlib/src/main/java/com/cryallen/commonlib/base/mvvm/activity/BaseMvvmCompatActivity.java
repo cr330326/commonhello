@@ -2,13 +2,12 @@ package com.cryallen.commonlib.base.mvvm.activity;
 
 import android.os.Bundle;
 
-import androidx.annotation.LayoutRes;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 
-import com.cryallen.commonlib.base.mvvm.IBaseMvvmView;
+import com.cryallen.commonlib.base.BaseCompatActivity;
+import com.cryallen.commonlib.base.mvvm.view.IBaseMvvmView;
 import com.cryallen.commonlib.base.mvvm.viewmodel.IMvvmBaseViewModel;
 
 /***
@@ -17,7 +16,7 @@ import com.cryallen.commonlib.base.mvvm.viewmodel.IMvvmBaseViewModel;
  * @DATE 2020-03-13
  ***/
 public abstract class BaseMvvmCompatActivity <V extends ViewDataBinding, VM extends IMvvmBaseViewModel>
-		extends AppCompatActivity implements IBaseMvvmView {
+		extends BaseCompatActivity implements IBaseMvvmView {
 
 	protected VM viewModel;
 
@@ -69,9 +68,6 @@ public abstract class BaseMvvmCompatActivity <V extends ViewDataBinding, VM exte
 	 * 获取参数Variable
 	 */
 	protected abstract int getBindingVariable();
-
-	@LayoutRes
-	protected abstract int getLayoutId();
 
 	/**
 	 * 失败重试,重新加载事件

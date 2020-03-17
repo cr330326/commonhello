@@ -6,8 +6,8 @@ package com.cryallen.commonlib.base.mvp.model;
  * @since 2017-02-04
  * @version 1.0.0
  */
-public abstract class BaseModel {
+public abstract class BaseMvpModel {
 
-	public BaseModel() {
+	public BaseMvpModel() {
 	}
 }

@@ -24,6 +24,7 @@ public interface IBaseMvpActivity extends IBaseMvpView {
 	 * 跳往新的Activity
 	 *
 	 * @param clz 要跳往的Activity
+	 * @param intent 携带的Intent数据
 	 */
 	void startNewActivity(@NonNull Class<?> clz, Intent intent);
 

@@ -2,13 +2,15 @@ package com.cryallen.commonlib.base.mvp.fragment;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
+import com.cryallen.commonlib.base.BaseCompatFragment;
+import com.cryallen.commonlib.base.mvp.activity.BaseMVPCompatActivity;
 import com.cryallen.commonlib.base.mvp.presenter.BaseMvpPresenter;
 import com.orhanobut.logger.Logger;
-
-import com.cryallen.commonlib.base.mvp.activity.BaseCompatActivity;
 
 import me.yokeyword.fragmentation.SupportFragment;
 
@@ -16,18 +18,14 @@ import me.yokeyword.fragmentation.SupportFragment;
  *  Mvp Fragment基类，实现IBaseView方法、绑定butterknife
  Created by chenran on 2018/7/2.
  ***/
-public abstract class BaseMVPCompatFragment <P extends BaseMvpPresenter> extends
-		BaseCompatFragment implements IBaseMvpFragment {
+public abstract class BaseMVPCompatFragment <P extends BaseMvpPresenter> extends BaseCompatFragment implements IBaseMvpFragment {
 
 	public P mPresenter;
 
 	/**
 	 * 在监听器之前把数据准备好
 	 */
-	@Override
-	public void initData() {
-		super.initData();
-
+	protected void initData() {
 		mPresenter = (P) initPresenter();
 		if (mPresenter != null) {
 			mPresenter.attachMV(this);
@@ -43,6 +41,11 @@ public abstract class BaseMVPCompatFragment <P extends BaseMvpPresenter> extends
 			Logger.d("Fragment detach M V success.");
 		}
 	}
+
+	/**
+	 * 初始化UI
+	 */
+	public abstract void initUI(View view, @Nullable Bundle savedInstanceState);
 
 	@Override
 	public void startNewFragment(@NonNull SupportFragment supportFragment) {
@@ -72,17 +75,17 @@ public abstract class BaseMVPCompatFragment <P extends BaseMvpPresenter> extends
 
 	@Override
 	public void startNewActivity(@NonNull Class<?> clz) {
-		((BaseCompatActivity) mActivity).startActivity(clz);
+		((BaseMVPCompatActivity) mActivity).startNewActivity(clz);
 	}
 
 	@Override
 	public void startNewActivity(@NonNull Class<?> clz, Bundle bundle) {
-		((BaseCompatActivity) mActivity).startActivity(clz, bundle);
+		((BaseMVPCompatActivity) mActivity).startNewActivity(clz, bundle);
 	}
 
 	@Override
 	public void startNewActivityForResult(@NonNull Class<?> clz, Bundle bundle, int requestCode) {
-		((BaseCompatActivity) mActivity).startActivityForResult(clz, bundle, requestCode);
+		((BaseMVPCompatActivity) mActivity).startNewActivityForResult(clz, bundle, requestCode);
 	}
 
 	@Override

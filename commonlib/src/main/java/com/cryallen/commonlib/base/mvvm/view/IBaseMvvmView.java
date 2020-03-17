@@ -1,4 +1,4 @@
-package com.cryallen.commonlib.base.mvvm;
+package com.cryallen.commonlib.base.mvvm.view;
 
 import com.cryallen.commonlib.base.IBaseView;
 

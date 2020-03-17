@@ -6,14 +6,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
-import androidx.fragment.app.Fragment;
 
-import com.cryallen.commonlib.base.mvvm.IBaseMvvmView;
+import com.cryallen.commonlib.base.BaseCompatFragment;
+import com.cryallen.commonlib.base.mvvm.view.IBaseMvvmView;
 import com.cryallen.commonlib.base.mvvm.viewmodel.IMvvmBaseViewModel;
 
 /***
@@ -22,7 +21,7 @@ import com.cryallen.commonlib.base.mvvm.viewmodel.IMvvmBaseViewModel;
  * @DATE 2020-03-13
  ***/
 public abstract class BaseMvvmCompatFragment<V extends ViewDataBinding, VM extends IMvvmBaseViewModel>
-		extends Fragment implements IBaseMvvmView {
+		extends BaseCompatFragment implements IBaseMvvmView {
 
 	protected V viewDataBinding;
 
@@ -41,8 +40,7 @@ public abstract class BaseMvvmCompatFragment<V extends ViewDataBinding, VM exten
 
 	@Nullable
 	@Override
-	public View onCreateView(@NonNull LayoutInflater inflater,
-	                         @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+	public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 		viewDataBinding = DataBindingUtil.inflate(inflater, getLayoutId(), container, false);
 		return viewDataBinding.getRoot();
 	}
@@ -62,8 +60,6 @@ public abstract class BaseMvvmCompatFragment<V extends ViewDataBinding, VM exten
 			viewDataBinding.executePendingBindings();
 		}
 	}
-
-
 
 	@Override
 	public void onAttach(@NonNull Context context) {
@@ -113,9 +109,6 @@ public abstract class BaseMvvmCompatFragment<V extends ViewDataBinding, VM exten
 	 * 获取ViewModel
 	 */
 	protected abstract VM getViewModel();
-
-	@LayoutRes
-	protected abstract int getLayoutId();
 
 	/**
 	 * 失败重试,加载事件
