@@ -27,14 +27,4 @@ public interface IBaseMvvmView extends IBaseView {
 	 * 刷新失败
 	 */
 	void showFailure(String message);
-
-	/**
-	 * 加载更多失败
-	 * */
-	void onLoadMoreFailure(String message);
-
-	/**
-	 * 没有更多了
-	 * */
-	void onLoadMoreEmpty();
 }

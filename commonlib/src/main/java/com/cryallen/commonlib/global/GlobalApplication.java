@@ -2,15 +2,7 @@ package com.cryallen.commonlib.global;
 
 import android.app.Application;
 import android.content.Context;
-import android.graphics.Point;
 import android.os.Handler;
-import android.util.DisplayMetrics;
-import android.view.Display;
-import android.view.WindowManager;
-
-import com.cryallen.commonlib.utils.LogUtils;
-import com.cryallen.commonlib.utils.LoggerUtils;
-
 
 /**
  *
@@ -18,16 +10,6 @@ import com.cryallen.commonlib.utils.LoggerUtils;
  */
 
 public class GlobalApplication extends Application {
-	private static final String LOG_TAG = "android_lib_logger";
-
-	public static int SCREEN_WIDTH = -1;
-	public static int SCREEN_HEIGHT = -1;
-	public static float DIMEN_RATE = -1.0F;
-	public static int DIMEN_DPI = -1;
-
-	public static int COORDINATE_MAX_X = -1;
-	public static int COORDINATE_MAX_Y = -1;
-
 	protected static Context context;
 	protected static Handler handler;
 	protected static int mainThreadId;
@@ -40,16 +22,10 @@ public class GlobalApplication extends Application {
 	@Override
 	public void onCreate() {
 		super.onCreate();
+		mApp = this;
 		context = getApplicationContext();
 		handler = new Handler();
 		mainThreadId = android.os.Process.myTid();
-
-		//默认打开日志开关
-		LogUtils.setDebuggable(true);
-		LogUtils.setTagName(LOG_TAG);
-		LoggerUtils.init(true);
-
-		initScreenSize();
 	}
 
 	/**
@@ -79,27 +55,5 @@ public class GlobalApplication extends Application {
 		return mainThreadId;
 	}
 
-	/**
-	 * 初始化获取当前设备屏幕信息
-	 */
-	private void initScreenSize() {
-		WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
-		DisplayMetrics dm = new DisplayMetrics();
-		Display display = windowManager.getDefaultDisplay();
-		display.getMetrics(dm);
-		Point point = new Point();
-		display.getSize(point);
 
-		COORDINATE_MAX_X = point.x;
-		COORDINATE_MAX_Y = point.y;
-
-		DIMEN_RATE = dm.density;
-		DIMEN_DPI = dm.densityDpi;
-		SCREEN_WIDTH = dm.widthPixels;
-		SCREEN_HEIGHT = dm.heightPixels;
-		String screenInfo = "DIMEN_RATE:" + DIMEN_RATE + ",DIMEN_DPI:" + DIMEN_DPI
-				+ ",SCREEN_WIDTH:" + SCREEN_WIDTH + ",SCREEN_HEIGHT:" + SCREEN_HEIGHT
-				+ ",COORDINATE_MAX_X:" + COORDINATE_MAX_X + ",COORDINATE_MAX_Y:" + COORDINATE_MAX_Y;
-		LogUtils.d(LOG_TAG,screenInfo);
-	}
 }
