@@ -1,4 +1,4 @@
-package com.cryallen.commonlib.livedatabus;
+package com.cryallen.commonlib.bus.livedatabus;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LifecycleOwner;

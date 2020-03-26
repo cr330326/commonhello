@@ -1,4 +1,4 @@
-package com.cryallen.commonlib.rxbus;
+package com.cryallen.commonlib.bus.rxbus;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

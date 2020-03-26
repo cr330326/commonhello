@@ -1,4 +1,4 @@
-package com.cryallen.commonlib.livedatabus;
+package com.cryallen.commonlib.bus.livedatabus;
 
 import androidx.lifecycle.Observer;
 
