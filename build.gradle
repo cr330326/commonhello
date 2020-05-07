@@ -8,6 +8,7 @@ buildscript {
         mavenCentral()
         maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
         maven { url 'https://jitpack.io' }
+        maven { url 'http://dev-ma-icp.dev.maezia:31026/repository/maven-releases/' }
         
     }
     dependencies {
@@ -24,6 +25,16 @@ allprojects {
         maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
         maven { url 'https://jitpack.io' }
         maven { url "https://dl.bintray.com/allen330326/maven/" }
+        maven { url 'http://dev-ma-icp.dev.maezia:31026/repository/maven-releases/' }
+    }
+
+    configurations.all {
+        // 配置 gradle 缓存更新周期, 参见 dependencies 的 changing 属性
+        //不使用缓存，编译时使用仓库中最新的包（如对于1.0.16.1-SNAPSHOT）
+        resolutionStrategy.cacheChangingModulesFor 0,'seconds'
+
+        //采用动态版本声明的依赖（如1.0.16.+）缓存，1分钟更新到最新
+        resolutionStrategy.cacheDynamicVersionsFor 1*60, 'seconds'
     }
 
     afterEvaluate {
