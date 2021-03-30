@@ -33,5 +33,5 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.cryallen.commonhello:commonlib:0.0.1'
 
-    implementation 'com.maezia.ezia.companion:ezia-companion-hu-smartpa-android_sdk:1.0.3'
+    //implementation 'com.maezia.ezia.companion:ezia-companion-hu-smartpa-android_sdk:1.0.3'
 }

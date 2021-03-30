@@ -42,4 +42,8 @@
 
     <color name="bg_white">#F0F0F0</color>
     <color name="txt_color">#48495F</color>
+
+    <!-- 下载进度条颜色 -->
+    <color name="common_download_progress_btn_background_color">#FF3385FF</color>
+    <color name="common_download_progress_btn_background_second_color">#FFFFFFFF</color>
 </resources>
